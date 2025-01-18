@@ -5,11 +5,11 @@ network_in=$(ifstat 1 1 | tail -1 | awk '{ print $1}')
 network_out=$(ifstat 1 1 | tail -1 | awk '{ print $2}')
 user_count=$(w | awk 'NR==1 {print $5}')
 #echo "cpu $cpu, disk $disk, mem $mem"
-echo "Usage in % percentage"
+echo "Usage in percentage (%)"
 echo "CPU         : $cpu"
 echo "Disk        : $disk"
 echo "Memory      : $mem"
-echo "Network Usage in KB/s"
+echo "Network Usage (KB/s)"
 echo "NetworkIn   : $network_in"
 echo "NetworkOut  : $network_out"
 echo "Logged In Users $user_count"
