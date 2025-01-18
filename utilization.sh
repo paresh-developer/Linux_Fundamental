@@ -3,7 +3,7 @@ disk=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')
 mem=$(free | awk '/Mem:/ {printf "%.2f", $3/$2 * 100.0}')
 network_in=$(ifstat 1 1 | tail -1 | awk '{ print $1}')
 network_out=$(ifstat 1 1 | tail -1 | awk '{ print $2}')
-user_count=$(w | awk 'NR==1 {print $5}')
+user_count=$(w | awk 'NR==1 {print $4}')
 #echo "cpu $cpu, disk $disk, mem $mem"
 echo "Usage in percentage (%)"
 echo "CPU         : $cpu"
@@ -12,4 +12,4 @@ echo "Memory      : $mem"
 echo "Network Usage (KB/s)"
 echo "NetworkIn   : $network_in"
 echo "NetworkOut  : $network_out"
-echo "Logged In Users $user_count"
+echo "Logged In Users : $user_count"
